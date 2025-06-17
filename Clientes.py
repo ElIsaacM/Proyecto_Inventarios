@@ -28,7 +28,7 @@ def Ver_carrito():
         print(f'{producto} x {cantidad}: Precio = {precio_unidad}')
         print(f'Subtotal = {subtotal}\n')
         total += subtotal
-        print(f'Total = {total}')
+    print(f'Total = {total}')
 
 def Confirmar_carrito():
     Confirmar = input('Desea confirmar la compra s/n: ')
@@ -64,8 +64,8 @@ while True:
     elif opcionCliente == 3:
         print('Tu carrito es:\n')
         Ver_carrito()
-        Confirmar_carrito()
-        break
+        if Confirmar_carrito():
+            break
 
     elif opcionCliente == 4:
         Ver_carrito()
