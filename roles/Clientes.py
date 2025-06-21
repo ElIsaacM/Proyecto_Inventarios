@@ -42,32 +42,33 @@ def Confirmar_carrito():
         print('Puedes agregar mas productos')
         return False
 
-while True:
-    print('\n--------menu--------')
-    print('1. Ver productos')
-    print('2. Agregar al carrito')
-    print('3. Ver carrito / comprar')
-    print('4. Salir')
-    try:
-        opcionCliente = int(input('Que deseas hacer: '))
-        print('\n')
-    except ValueError:
-        print('Por favor ingrese un numero valido')
-        continue
-
-    if opcionCliente == 1:
-        prod.Ver_productos()
-
-    elif opcionCliente == 2:
-        Agregar_carrito()
-
-    elif opcionCliente == 3:
-        print('Tu carrito es:\n')
-        Ver_carrito()
-        if Confirmar_carrito():
+def Menu_cliente():
+    while True:
+        print('\n--------menu--------')
+        print('1. Ver productos')
+        print('2. Agregar al carrito')
+        print('3. Ver carrito / comprar')
+        print('4. Salir')
+        try:
+            opcionCliente = int(input('Que deseas hacer: '))
+            print('\n')
+        except ValueError:
+            print('Por favor ingrese un numero valido')
+            continue
+        
+        if opcionCliente == 1:
+            prod.Ver_productos()
+    
+        elif opcionCliente == 2:
+            Agregar_carrito()
+    
+        elif opcionCliente == 3:
+            print('Tu carrito es:\n')
+            Ver_carrito()
+            if Confirmar_carrito():
+                break
+            
+        elif opcionCliente == 4:
+            Ver_carrito()
+            print('Hasta la proxima!') 
             break
-
-    elif opcionCliente == 4:
-        Ver_carrito()
-        print('Hasta la proxima!') 
-        break
