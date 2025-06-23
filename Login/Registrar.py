@@ -24,12 +24,6 @@ def Registro():
     else:
         print('la longitud de la clave debe ser de 4 caracteres!')
 
-def Leer_usuarios():
-    with open('usuarios.txt', 'r') as f:
-        for linea in f:
-            usuario, contrasena_encriptada, clave = linea.strip().split(',')
-            print(f"Usuario: {usuario}, Contraseña encriptada: {contrasena_encriptada}, Clave: {clave}")
-
 while True:
     print('\n----menu----')
     print('1. Registrarse')
