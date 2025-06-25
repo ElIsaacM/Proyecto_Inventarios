@@ -39,8 +39,10 @@ def Actualizar_producto():
 def Eliminar_producto():
     nombre = input('Nombre del producto: ')
     if nombre in productos:
-        del productos[nombre]
-        print('Producto eliminado con exito!')
+        opcionDel = input('Seguro que deseas eliminar el producto s/n: ')
+        if opcionDel.lower() == 's': 
+            del productos[nombre]
+            print('Producto eliminado con exito!')
 
 # Validar existencia
 def Existe_producto(nombre):

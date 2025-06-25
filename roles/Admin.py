@@ -4,6 +4,10 @@ def Stock_bajo():
     for nombre, datos in prod.productos.items():
         if datos['stock'] <= 10:
             print(f'{nombre}: Stock = {datos['stock']}')
+    if datos['stock'] <= 10:
+        return
+    else:
+        print('No hay productos con stock bajo.')
 
 def Ver_usuarios():
     with open('Datos/usuarios.txt', 'r') as f:
@@ -40,7 +44,11 @@ def Asignar_rol(usuario, rol):
     for linea in lineas:
         partes = linea.strip().split(',')
         if partes[0] == usuario:
-            partes.append(rol)
+            # Si el usuario ya tiene un rol asignado, lo reemplazamos
+            if len(partes) > 3:
+                partes[3] = rol
+            else:
+                partes.append(rol)
             nuevo_rol.append(','.join(partes) + '\n')
             print(f'Rol asignado para: {usuario}\n')
         else:
@@ -121,7 +129,7 @@ def Menu_usuarios():
         else:
             print('Opcion no valida!')
 
-def Menu_admin():
+def Menu_admin(rol):
     while True:
         print('\n--------menu--------')
         print('1. Ver productos')
@@ -129,8 +137,9 @@ def Menu_admin():
         print('3. Actualizar productos')
         print('4. Eliminar productos')
         print('5. Consultar productos con stock bajo')
-        print('6. Administrar usuarios')
-        print('7. Salir')
+        print('6. Salir')
+        if rol == 'root':
+            print('\n7. Administrar usuarios')
         try:
             opcion = int(input('Que deseas hacer: '))
             print('\n')
@@ -154,14 +163,11 @@ def Menu_admin():
             Stock_bajo()
 
         elif opcion == 6:
-            Menu_usuarios()
-
-        elif opcion == 7:
             print('Hasta la proxima!')
             break
 
+        elif rol == 'root':
+            Menu_usuarios()
+
         else:
             print('Opcion no valida!')  
-
-usuarioAdmin = 'El admin123'
-contraAdmin = 'contra_admin'  

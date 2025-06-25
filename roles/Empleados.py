@@ -1,6 +1,6 @@
 import Productos as prod
 
-def Menu_empleado():
+def Menu_empleado(rol):
     while True:
         print('\n---------menu--------')
         print('1. Ver productos')

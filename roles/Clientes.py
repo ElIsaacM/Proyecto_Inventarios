@@ -42,7 +42,7 @@ def Confirmar_carrito():
         print('Puedes agregar mas productos')
         return False
 
-def Menu_cliente():
+def Menu_cliente(rol):
     while True:
         print('\n--------menu--------')
         print('1. Ver productos')
